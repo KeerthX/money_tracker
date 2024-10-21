@@ -1,0 +1,85 @@
+body {
+    background-color: #121212;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    background-color: #1e1e1e;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.content {
+    margin: 20px;
+}
+
+form label,
+form input,
+form select,
+form button {
+    display: block;
+    margin: 10px 0;
+}
+
+form input,
+form select {
+    padding: 10px;
+    width: 100%;
+}
+
+form button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    padding: 10px;
+    border: 1px solid #555;
+}
+
+h1 {
+    text-align: center;
+}
+
+.summary {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    width: 20%;
+    text-align: center;
+}

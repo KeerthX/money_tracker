@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Investments</h1>
+<form method="POST">
+    <label>Company:</label>
+    <input type="text" name="company" required>
+    <label>Amount:</label>
+    <input type="number" name="amount" step="0.01" required>
+    <label>Units:</label>
+    <input type="number" name="units" step="0.01" required>
+    <label>Class:</label>
+    <select name="class">
+        <option value="Stock">Stock</option>
+        <option value="Mutual Fund">Mutual Fund</option>
+    </select>
+    <label>Currency:</label>
+    <select name="currency">
+        <option value="INR">INR</option>
+        <option value="USD">USD</option>
+    </select>
+    <button type="submit">Add Investment</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Company</th>
+            <th>Amount</th>
+            <th>Units</th>
+            <th>Class</th>
+            <th>Currency</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for investment in investments %}
+        <tr>
+            <td>{{ investment.company }}</td>
+            <td>{{ investment.amount }}</td>
+            <td>{{ investment.units }}</td>
+            <td>{{ investment.class_type }}</td>
+            <td>{{ investment.currency }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+{% endblock %}
