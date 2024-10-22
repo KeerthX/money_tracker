@@ -50,6 +50,7 @@ def home():
     return render_template('home.html', total_income=total_income, total_savings=total_savings,
                            total_expenses=total_expenses, total_investments=total_investments)
 
+# Income routes
 @app.route('/income', methods=['GET', 'POST'])
 def income():
     if request.method == 'POST':
@@ -63,6 +64,14 @@ def income():
     incomes = Income.query.all()
     return render_template('income.html', incomes=incomes)
 
+@app.route('/income/delete/<int:id>', methods=['POST'])
+def delete_income(id):
+    income = Income.query.get_or_404(id)
+    db.session.delete(income)
+    db.session.commit()
+    return redirect(url_for('income'))
+
+# Investment routes
 @app.route('/investments', methods=['GET', 'POST'])
 def investments():
     if request.method == 'POST':
@@ -78,6 +87,14 @@ def investments():
     investments = Investment.query.all()
     return render_template('investments.html', investments=investments)
 
+@app.route('/investments/delete/<int:id>', methods=['POST'])
+def delete_investment(id):
+    investment = Investment.query.get_or_404(id)
+    db.session.delete(investment)
+    db.session.commit()
+    return redirect(url_for('investments'))
+
+# Savings routes
 @app.route('/savings', methods=['GET', 'POST'])
 def savings():
     if request.method == 'POST':
@@ -92,6 +109,14 @@ def savings():
     savings = Saving.query.all()
     return render_template('savings.html', savings=savings)
 
+@app.route('/savings/delete/<int:id>', methods=['POST'])
+def delete_saving(id):
+    saving = Saving.query.get_or_404(id)
+    db.session.delete(saving)
+    db.session.commit()
+    return redirect(url_for('savings'))
+
+# Expense routes
 @app.route('/expenses', methods=['GET', 'POST'])
 def expenses():
     if request.method == 'POST':
@@ -105,6 +130,13 @@ def expenses():
         return redirect(url_for('expenses'))
     expenses = Expense.query.all()
     return render_template('expenses.html', expenses=expenses)
+
+@app.route('/expenses/delete/<int:id>', methods=['POST'])
+def delete_expense(id):
+    expense = Expense.query.get_or_404(id)
+    db.session.delete(expense)
+    db.session.commit()
+    return redirect(url_for('expenses'))
 
 if __name__ == '__main__':
     app.run(debug=True)
