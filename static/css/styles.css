@@ -1,85 +1,267 @@
-body {
-    background-color: #121212;
-    color: white;
-    font-family: Arial, sans-serif;
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* Variables */
+:root {
+    --primary-color: #2563eb;
+    --success-color: #22c55e;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    --background-dark: #0f172a;
+    --card-dark: #1e293b;
+    --text-light: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
 }
 
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+}
+
+/* Layout */
+.content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Navigation */
 nav {
-    background-color: #1e1e1e;
-    padding: 10px;
-    text-align: center;
+    background-color: var(--card-dark);
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
 }
 
 nav ul li a {
-    color: white;
+    color: var(--text-light);
     text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
 }
 
-.content {
-    margin: 20px;
+nav ul li a:hover {
+    background-color: var(--primary-color);
 }
 
-form label,
-form input,
-form select,
-form button {
+/* Forms */
+form {
+    background-color: var(--card-dark);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
     display: block;
-    margin: 10px 0;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.875rem;
 }
 
-form input,
-form select {
-    padding: 10px;
+input,
+select {
     width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    border-radius: 0.375rem;
+    margin-bottom: 1rem;
+    font-family: inherit;
 }
 
-form button {
-    padding: 10px;
-    background-color: #4CAF50;
+button {
+    background-color: var(--primary-color);
     color: white;
+    padding: 0.75rem 1.5rem;
     border: none;
+    border-radius: 0.375rem;
     cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    font-family: inherit;
 }
 
-form button:hover {
-    background-color: #45a049;
+button:hover {
+    background-color: #1d4ed8;
 }
 
+/* Tables */
 table {
     width: 100%;
-    margin-top: 20px;
     border-collapse: collapse;
+    margin-top: 1.5rem;
+    background-color: var(--card-dark);
+    border-radius: 0.5rem;
+    overflow: hidden;
 }
 
-table th,
-table td {
-    padding: 10px;
-    border: 1px solid #555;
+th {
+    background-color: var(--background-dark);
+    color: var(--text-muted);
+    font-weight: 500;
+    text-align: left;
+    padding: 1rem;
 }
 
-h1 {
-    text-align: center;
+td {
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
 }
 
+/* Summary Cards */
 .summary {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .card {
-    background-color: #1e1e1e;
-    padding: 20px;
-    border-radius: 8px;
-    width: 20%;
+    background-color: var(--card-dark);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
     text-align: center;
+}
+
+.card h3 {
+    color: var(--text-muted);
+    margin-top: 0;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.card p {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Delete Buttons */
+.delete-button {
+    background-color: var(--danger-color);
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+.delete-button:hover {
+    background-color: #dc2626;
+}
+
+/* Charts */
+canvas {
+    background-color: var(--card-dark);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* Headings */
+h1,
+h2 {
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 1.875rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+/* Utility Classes */
+.text-success {
+    color: var(--success-color);
+}
+
+.text-warning {
+    color: var(--warning-color);
+}
+
+.text-danger {
+    color: var(--danger-color);
+}
+
+.text-primary {
+    color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .summary {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    form {
+        padding: 1rem;
+    }
+
+    .content {
+        padding: 0 0.5rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .content {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    canvas {
+        max-height: 400px;
+    }
 }
